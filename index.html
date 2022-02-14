@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="libraries/css/bootstrap.min.css">
+    <!-- <script src="libraries/js/bootstrap.min.js"></script> -->
+    <script src="libraries/js/jquery.min.js"></script>
+    <script src="libraries/js/p5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <title>Lindenmeyer-System</title>
+
+
+</head>
+
+<body>
+    <div class="container-fluid fill">
+        <div class="row header">
+            <h1 id="title">Lindenmeyer Systems</h1>
+        </div>
+        <div class="row main">
+            <div class="col-md-3">
+                <div id="controls">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Axiom</span>
+                        </div>
+                        <input id="axiom" type="text" class="form-control" value="F">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">F-Reproduction</span>
+                        </div>
+                        <input id="F" type="text" class="form-control" value="F[-F]F[+F][F]">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">L-Reproduction</span>
+                        </div>
+                        <input id="L" type="text" class="form-control" value="">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">R-Reproduction</span>
+                        </div>
+                        <input id="R" type="text" class="form-control" value="">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X-Reproduction</span>
+                        </div>
+                        <input id="X" type="text" class="form-control" value="">
+                    </div>
+
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Angle</span>
+                        </div>
+                        <input id="angle" type="number" class="form-control" value="30">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Iterations</span>
+                        </div>
+                        <input id="derivation-counter" type="number" class="form-control" value=0 disabled>
+                    </div>
+                    <button id="reset" type="button" class="btn btn-primary">Reset</button>
+                    <button id="derivate" type="button" class="btn btn-primary">Iterate</button>
+                    <button id="download-svg" type="button" class="btn btn-primary">Download</button>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div id=p5></div>
+            </div>
+
+
+        </div>
+        <div class="row footer"></div>
+    </div>
+
+
+    <script src="sketch.js"></script>
+    <script src="Curve.js"></script>
+    <script src="Layer.js"></script>
+    <script src="State.js"></script>
+    <script src="Polyline.js"></script>
+    <script src="BoundingBox.js"></script>
+    <script src="Point.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+
+
+html, body, .container-fluid {
+  height: 100%;
+}
+
+body {
+  background-color:rgb(255, 254, 253);
+}
+
+canvas {
+    display: block;
+}
+.footer, .header{
+  height: 70px;
+  background-color: whitesmoke;
+}
+
+#controls {
+  margin: 30px
+}
+
+#p5 {
+  height: calc(100vh - 200px);  
+  margin: 30px
+}
+
+
+#description{
+  color:cornflowerblue
+}
+
+#title {
+  color: cornflowerblue;
+  margin-top:auto;
+  margin-bottom: auto;
+  margin-left: 15px;
+}
+
+.input-group-text,.text-lg-start {
+  color: rgb(51,51,51);
+  background-color: whitesmoke;
+  width: 120px;
+}
+
+.form-control {
+  color: rgb(51,51,51);
+  background-color: rgb(255, 254, 253);
+}
+
+.form-control:disabled {
+  color: rgb(51,51,51);
+  background-color:whitesmoke;
+}
+
+.btn-primary {
+  color: cornflowerblue;
+  background-color: whitesmoke;
+  border-radius: 1;
+  border-color: cornsilk;
+}
+
+.btn-primary:hover {
+  color: whitesmoke;
+  background-color: cornflowerblue;
+  border-radius: 1;
+  border-color: cornflowerblue;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0rem whitesmoke;
+} 
+
+  
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: whitesmoke;
+  background-color: cornflowerblue;
+  border-color: rgb(187, 211, 255)
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 3px cornflowerblue;
+}
+
+
