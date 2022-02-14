@@ -84,11 +84,11 @@ function setup() {
 
     }
     document.getElementById('axiom').oninput = update_curve
-    document.getElementById('angle').onchange = update_curve
-    document.getElementById('F').onchange = update_curve
-    document.getElementById('L').onchange = update_curve
-    document.getElementById('R').onchange = update_curve
-    document.getElementById('X').onchange = update_curve
+    document.getElementById('angle').oninput = update_curve
+    document.getElementById('F').oninput = update_curve
+    document.getElementById('L').oninput = update_curve
+    document.getElementById('R').oninput = update_curve
+    document.getElementById('X').oninput = update_curve
 
     document.getElementById('derivate').onclick = function () {
         background(255, 254, 253);
