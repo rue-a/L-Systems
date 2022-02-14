@@ -67,9 +67,11 @@ function setup() {
         axiom = document.getElementById('axiom').value;
         productions = {
             'F': document.getElementById('F').value,
+            'f': document.getElementById('f').value,
             'R': document.getElementById('R').value,
             'L': document.getElementById('L').value,
-            'X': document.getElementById('X').value
+            'X': document.getElementById('X').value,
+            'Y': document.getElementById('Y').value
         };
         angle = document.getElementById('angle').value;
         curve.set_axiom(axiom);
@@ -86,9 +88,11 @@ function setup() {
     document.getElementById('axiom').oninput = update_curve
     document.getElementById('angle').oninput = update_curve
     document.getElementById('F').oninput = update_curve
+    document.getElementById('f').oninput = update_curve
     document.getElementById('L').oninput = update_curve
     document.getElementById('R').oninput = update_curve
     document.getElementById('X').oninput = update_curve
+    document.getElementById('Y').oninput = update_curve
 
     document.getElementById('derivate').onclick = function () {
         background(255, 254, 253);
@@ -98,9 +102,11 @@ function setup() {
         document.getElementById('derivation-counter').value++;
         document.getElementById('axiom').disabled = true;
         document.getElementById('F').disabled = true;
+        document.getElementById('f').disabled = true;
         document.getElementById('R').disabled = true;
         document.getElementById('L').disabled = true;
         document.getElementById('X').disabled = true;
+        document.getElementById('Y').disabled = true;
         document.getElementById('angle').disabled = true;
     }
 
@@ -109,9 +115,11 @@ function setup() {
 
         document.getElementById('axiom').disabled = false;
         document.getElementById('F').disabled = false;
+        document.getElementById('f').disabled = false;
         document.getElementById('R').disabled = false;
         document.getElementById('L').disabled = false;
         document.getElementById('X').disabled = false;
+        document.getElementById('Y').disabled = false;
         document.getElementById('angle').disabled = false;
         document.getElementById('derivation-counter').value = 0;
 

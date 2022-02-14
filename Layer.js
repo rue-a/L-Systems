@@ -13,10 +13,17 @@ class Layer {
 
     from_turtle(turtle_string, angle = PI / 2, start_point = new Point(0, 0), start_angle = 0) {
         // this.points = this.points.concat(start_point);
+        let forward = function (x, y, phi) {
+            // hypotenuse = 1
+            // console.log(phi)
+            x = x + cos(phi);
+            y = y + sin(phi);
+            return (new Point(x, y));
+        }
         this.points = [];
         this.polylines = [];
         let current_state = new State(start_point, start_angle);
-        let substrings = turtle_string.split(/(\[|\])/g)
+        let substrings = turtle_string.split(/(\[|\]|f)/g)
         let states = [];
         for (let string of substrings) {
             switch (string) {
@@ -26,7 +33,11 @@ class Layer {
                 case ']':
                     current_state = states[states.length - 1];
                     states.pop()
-
+                    break;
+                case 'f':
+                    let current_point = current_state.get_point();
+                    let new_point = forward(current_point.get_x(), current_point.get_y(), current_state.get_angle());
+                    current_state.set_point(new_point);
                     break;
                 case '':
                     break;
