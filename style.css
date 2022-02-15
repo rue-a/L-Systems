@@ -58,11 +58,15 @@ canvas {
   font-size: small;
 }
 
-.input-group-text,.text-lg-start {
-  color: rgb(51,51,51);
+
+
+
+.input-group-text {  
+  color: rgb(51,51,51);  
   background-color: whitesmoke;
   width: 120px;
 }
+
 
 .form-control {
   color: rgb(51,51,51);
