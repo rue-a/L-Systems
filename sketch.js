@@ -1,12 +1,21 @@
+function append_further_vars(productions) {
+    let vars;
+    document.getElementById('variables').value
+
+    vars = document.getElementById('variables').value
 
 
-const default_axiom = 'F';
-const default_productions = {
-    'F': 'F',
-    'R': 'R',
-    'L': 'L'
+    try {
+        vars = (JSON.parse(vars))
+    }
+    catch { vars = {} }
+    console.log(vars)
+    console.log(Object.keys(vars))
+    for (let key of Object.keys(vars)) {
+        productions[key] = vars[key];
+    }
+    return productions
 }
-const default_angle = 90;
 
 function saveSvg(svgEl, name) {
     svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
@@ -45,9 +54,11 @@ function setup() {
     let axiom = document.getElementById('axiom').value;
     let productions = {
         'F': document.getElementById('F').value,
-        'R': document.getElementById('R').value,
-        'L': document.getElementById('L').value
+        'f': document.getElementById('f').value,
+        'X': document.getElementById('X').value,
+        'Y': document.getElementById('Y').value,
     };
+    productions = append_further_vars(productions);
     let angle = document.getElementById('angle').value;
 
 
@@ -68,11 +79,10 @@ function setup() {
         productions = {
             'F': document.getElementById('F').value,
             'f': document.getElementById('f').value,
-            'R': document.getElementById('R').value,
-            'L': document.getElementById('L').value,
             'X': document.getElementById('X').value,
             'Y': document.getElementById('Y').value
         };
+        productions = append_further_vars(productions);
         angle = document.getElementById('angle').value;
         curve.set_axiom(axiom);
         curve.set_productions(productions);
@@ -89,10 +99,9 @@ function setup() {
     document.getElementById('angle').oninput = update_curve
     document.getElementById('F').oninput = update_curve
     document.getElementById('f').oninput = update_curve
-    document.getElementById('L').oninput = update_curve
-    document.getElementById('R').oninput = update_curve
     document.getElementById('X').oninput = update_curve
     document.getElementById('Y').oninput = update_curve
+    document.getElementById('variables').oninput = update_curve
 
     document.getElementById('derivate').onclick = function () {
         background(255, 254, 253);
@@ -103,10 +112,9 @@ function setup() {
         document.getElementById('axiom').disabled = true;
         document.getElementById('F').disabled = true;
         document.getElementById('f').disabled = true;
-        document.getElementById('R').disabled = true;
-        document.getElementById('L').disabled = true;
         document.getElementById('X').disabled = true;
         document.getElementById('Y').disabled = true;
+        document.getElementById('variables').disabled = true;
         document.getElementById('angle').disabled = true;
     }
 
@@ -116,10 +124,9 @@ function setup() {
         document.getElementById('axiom').disabled = false;
         document.getElementById('F').disabled = false;
         document.getElementById('f').disabled = false;
-        document.getElementById('R').disabled = false;
-        document.getElementById('L').disabled = false;
         document.getElementById('X').disabled = false;
         document.getElementById('Y').disabled = false;
+        document.getElementById('variables').disabled = false;
         document.getElementById('angle').disabled = false;
         document.getElementById('derivation-counter').value = 0;
 
@@ -132,7 +139,6 @@ function setup() {
         curve.show_lines();
         // curve.show_points();
     }
-
 
     document.getElementById('download-svg').onclick = function () {
         let svgEl = curve.as_svg();
@@ -149,13 +155,9 @@ function setup() {
         downloadLink.click();
         document.body.removeChild(downloadLink);
     }
-
-
-
-
 }
 
+
+
 function draw() {
-
-
 }

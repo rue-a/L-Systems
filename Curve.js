@@ -6,6 +6,7 @@ class Curve {
         this.angle = angle;
         this.bbox = bbox;
         this.layer = new Layer();
+        console.log(productions)
     }
 
     set_axiom(axiom) { this.axiom = axiom; }

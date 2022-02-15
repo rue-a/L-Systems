@@ -21,13 +21,13 @@
         </div>
         <div class="row main">
             <div class="col-md-5">
-                <p class="text-justify">Originally developed by Aristid Lindenmayer in 1968, an L-Systems is a formalism
+                <p class="text-justify">Originally developed by Aristid Lindenmayer in 1968, an L-System is a formalism
                     to generate self-similar structures. Although, L-Systems are capable of generating famous fractals
                     like the Sierpinski Triangle (Axiom: FXF--FF--FF, F &#8614;<i> FF</i>, X &#8614;<i>
                         --FXF++FXF++FXF--</i>, angle = <i>60</i>) or the
-                    Gosper Curve (Axiom: F, <i>F &#8614; R</i>, R &#8614; <i>R+L++L-R--RR-L+</i>, L
+                    Gosper Curve (Axiom: FX, X &#8614; <i>FX-FY--FY+FX++FXFX+FY-</i>, Y
                     &#8614;<i>
-                        -R+LL++L+R--R-L</i>, angle = <i>60</i>),
+                        +FX-FYFY--FY-FX++FX+FY</i>, angle = <i>60</i>),
                     first and
                     foremost, they were developed to model the growth of plants.
                     <br>
@@ -47,7 +47,7 @@
                     left by the
                     same angle. The symbol "[" stores the current position and angle, whereas the symbol
                     "]" restores the
-                    last position and angle, i.e. jumps back to the last "]". Every other character is simply
+                    last position and angle, i.e. jumps back to the last "[". Every other character is simply
                     ignored.
                     For a more sophisticated explanation of L-Systems turn to <a
                         href="http://algorithmicbotany.org/papers/abop/abop.pdf">The Algorithmic Beauty of Plants</a>
@@ -77,18 +77,7 @@
                         </div>
                         <input id="f" type="text" class="form-control" value="">
                     </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">L-Reproduction</span>
-                        </div>
-                        <input id="L" type="text" class="form-control" value="">
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">R-Reproduction</span>
-                        </div>
-                        <input id="R" type="text" class="form-control" value="">
-                    </div>
+
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">X-Reproduction</span>
@@ -101,7 +90,13 @@
                         </div>
                         <input id="Y" type="text" class="form-control" value="">
                     </div>
-
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Variables</span>
+                        </div>
+                        <input id="variables" type="text" class="form-control" value=""
+                            placeholder="Enter further variables as JSON, e.g. {&quot;Z&quot;: &quot;FZ&quot;}">
+                    </div>
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Angle</span>
