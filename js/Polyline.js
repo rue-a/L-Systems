@@ -21,8 +21,6 @@ class Polyline {
             // console.log(character)
             switch (character) {
                 case 'F':
-                case 'R':
-                case 'L':
                     this.points.push(forward(this.points[this.points.length - 1].get_x(), this.points[this.points.length - 1].get_y(), current_angle));
                     break;
                 case '+':
