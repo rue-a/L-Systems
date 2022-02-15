@@ -15,7 +15,11 @@ canvas {
   height: 70px;
   background-color: whitesmoke;
 }
-
+.footer-text{
+  font-size: x-small;
+  margin:auto;
+  text-align: center;
+}
 .href{
   color:cornflowerblue;
 }
