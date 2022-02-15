@@ -16,6 +16,10 @@ canvas {
   background-color: whitesmoke;
 }
 
+.href{
+  color:cornflowerblue;
+}
+
 #controls {
   margin: 30px
 }
@@ -36,6 +40,7 @@ canvas {
   margin-bottom: auto;
   margin-left: 15px;
 }
+
 
 .text-justify {
   margin-left: 30px;
