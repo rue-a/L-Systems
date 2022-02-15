@@ -29,6 +29,7 @@ class Curve {
             }
         }
         this.current_iteration = current_iteration;
+        console.log(current_iteration)
     }
 
     get_current_iteration() { return this.current_iteration }
