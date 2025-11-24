@@ -11,7 +11,7 @@ class Layer {
 
     // add_polygon(polygon) { this.polygons = this.polygons.concat(polygon); }
 
-    from_turtle(turtle_string, angle = PI / 2, start_point = new Point(0, 0), start_angle = 0) {
+    from_turtle(turtle_string, angle = PI / 2, scale = 0.5, start_point = new Point(0, 0), start_angle = 0, start_scale = 1) {
         // this.points = this.points.concat(start_point);
         let forward = function (x, y, phi) {
             // hypotenuse = 1
@@ -22,7 +22,7 @@ class Layer {
         }
         this.points = [];
         this.polylines = [];
-        let current_state = new State(start_point, start_angle);
+        let current_state = new State(start_point, start_angle, start_scale);
         let substrings = turtle_string.split(/(\[|\]|f)/g)
         let states = [];
         for (let string of substrings) {
@@ -43,8 +43,9 @@ class Layer {
                     break;
                 default:
                     let polyline = new Polyline();
-                    let state = polyline.coordinates_from_turtle(string, angle, current_state.get_point().clone(), current_state.get_angle());
-                    current_state = new State(state[0], state[1]);
+                    let state = polyline.coordinates_from_turtle(string, angle, scale, current_state.get_point().clone(), current_state.get_angle(), current_state.get_scale());
+                    current_state = new State(state[0], state[1], state[2]);
+                    console.log(current_state);
                     this.polylines = this.polylines.concat(polyline)
                     for (let point of polyline.get_points()) {
                         this.points = this.points.concat(point);

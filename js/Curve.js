@@ -1,9 +1,10 @@
 class Curve {
-    constructor(axiom, productions, angle, bbox) {
+    constructor(axiom, productions, angle, bbox, scale) {
         this.axiom = axiom;
         this.current_iteration = axiom;
         this.productions = productions;
         this.angle = angle;
+        this.scale = scale;
         this.bbox = bbox;
         this.layer = new Layer();
         console.log(productions)
@@ -12,6 +13,7 @@ class Curve {
     set_axiom(axiom) { this.axiom = axiom; }
     set_productions(productions) { this.productions = productions; }
     set_angle(angle) { this.angle = angle; }
+    set_scale(scale) { this.scale = scale; }
     set_bbox(bbox) { this.bbox = bbox }
     reset_current_iteration() {
         this.current_iteration = this.axiom;
@@ -34,7 +36,7 @@ class Curve {
     get_current_iteration() { return this.current_iteration }
 
     update_view() {
-        this.layer.from_turtle(this.current_iteration, this.angle);
+        this.layer.from_turtle(this.current_iteration, this.angle, this.scale);
         this.layer.fit_to_frame(this.bbox);
     }
 

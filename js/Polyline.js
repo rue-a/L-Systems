@@ -6,14 +6,15 @@ class Polyline {
     get_points() { return (this.points); }
 
 
-    coordinates_from_turtle(turtle_string, angle = PI / 2, start_point = new Point(0, 0), start_angle = 0) {
+    coordinates_from_turtle(turtle_string, angle = PI / 2, scale = 0.5, start_point = new Point(0, 0), start_angle = 0, start_scale = 1) {
         let current_angle = start_angle;
+        let current_scale = start_scale;
         this.points.push(start_point);
-        let forward = function (x, y, phi) {
+        let forward = function (x, y, phi, scale) {
             // hypotenuse = 1
             // console.log(phi)
-            x = x + cos(phi);
-            y = y + sin(phi);
+            x = x + (cos(phi) * scale);
+            y = y + (sin(phi) * scale);
             return (new Point(x, y));
         }
 
@@ -21,7 +22,7 @@ class Polyline {
             // console.log(character)
             switch (character) {
                 case 'F':
-                    this.points.push(forward(this.points[this.points.length - 1].get_x(), this.points[this.points.length - 1].get_y(), current_angle));
+                    this.points.push(forward(this.points[this.points.length - 1].get_x(), this.points[this.points.length - 1].get_y(), current_angle, current_scale));
                     break;
                 case '+':
                     current_angle += angle;
@@ -29,12 +30,18 @@ class Polyline {
                 case '-':
                     current_angle -= angle;
                     break;
+                case '*':
+                    current_scale /= scale;
+                    break;
+                case '/':
+                    current_scale *= scale;
+                    break;
                 default:
                     // console.log(character);
                     break;
             }
         }
-        return ([this.points[this.points.length - 1].clone(), current_angle]);
+        return ([this.points[this.points.length - 1].clone(), current_angle, current_scale]);
     }
 
     get_bounding_box() {
